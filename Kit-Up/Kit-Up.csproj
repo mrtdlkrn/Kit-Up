@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -88,24 +95,106 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\assets\books\1984.png" />
+    <Content Include="Content\assets\books\gün-olur-asra-bedel.png" />
+    <Content Include="Content\assets\books\kahin-ve-anka.png" />
+    <Content Include="Content\assets\css\flex-slider.css" />
+    <Content Include="Content\assets\css\fontawesome.css" />
+    <Content Include="Content\assets\css\lightbox.css" />
+    <Content Include="Content\assets\css\owl.css" />
+    <Content Include="Content\assets\css\templatemo-grad-school.css" />
+    <Content Include="Content\assets\fonts\flexslider-icon.svg" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\fonts\slick.svg" />
+    <Content Include="Content\assets\images\1984.png" />
+    <Content Include="Content\assets\images\ana_vid.mp4" />
+    <Content Include="Content\assets\images\author-01.png" />
+    <Content Include="Content\assets\images\author-02.png" />
+    <Content Include="Content\assets\images\author-03.png" />
+    <Content Include="Content\assets\images\author-04.png" />
+    <Content Include="Content\assets\images\author-05.png" />
+    <Content Include="Content\assets\images\choose-us-image-01.png" />
+    <Content Include="Content\assets\images\choose-us-image-02.png" />
+    <Content Include="Content\assets\images\choose-us-image-03.png" />
+    <Content Include="Content\assets\images\choosing-bg.jpg" />
+    <Content Include="Content\assets\images\close.png" />
+    <Content Include="Content\assets\images\coming-soon-bg.jpg" />
+    <Content Include="Content\assets\images\contact-bg.jpg" />
+    <Content Include="Content\assets\images\course-video.mp4" />
+    <Content Include="Content\assets\images\courses-01.jpg" />
+    <Content Include="Content\assets\images\courses-02.jpg" />
+    <Content Include="Content\assets\images\courses-03.jpg" />
+    <Content Include="Content\assets\images\courses-04.jpg" />
+    <Content Include="Content\assets\images\courses-05.jpg" />
+    <Content Include="Content\assets\images\courses-bg.jpg" />
+    <Content Include="Content\assets\images\günolurasrabedel.png" />
+    <Content Include="Content\assets\images\KahinveAnka.png" />
+    <Content Include="Content\assets\images\loading.gif" />
+    <Content Include="Content\assets\images\main-slider-01.jpg" />
+    <Content Include="Content\assets\images\main-slider-02.jpg" />
+    <Content Include="Content\assets\images\main-slider-03.jpg" />
+    <Content Include="Content\assets\images\main-thumb.png" />
+    <Content Include="Content\assets\images\next.png" />
+    <Content Include="Content\assets\images\prev.png" />
+    <Content Include="Content\assets\images\shortcut_logo.png" />
+    <Content Include="Content\assets\images\video-bg.jpg" />
+    <Content Include="Content\assets\images\video-thumb-01.jpg" />
+    <Content Include="Content\assets\images\video-thumb-02.jpg" />
+    <Content Include="Content\assets\js\custom.js" />
+    <Content Include="Content\assets\js\isotope.min.js" />
+    <Content Include="Content\assets\js\lightbox.js" />
+    <Content Include="Content\assets\js\owl-carousel.js" />
+    <Content Include="Content\assets\js\slick-slider.js" />
+    <Content Include="Content\assets\js\tabs.js" />
+    <Content Include="Content\assets\js\video.js" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\jquery.js" />
+    <Content Include="Content\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\vendor\jquery\jquery.slim.js" />
+    <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entity\DataInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Entity\DataContext.cs" />
+    <Compile Include="Entity\Urun.cs" />
+    <Compile Include="Migrations\202109221235516_InitialCreate.cs" />
+    <Compile Include="Migrations\202109221235516_InitialCreate.designer.cs">
+      <DependentUpon>202109221235516_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\UrunModel.cs" />
+    <Compile Include="Models\Veritabani.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Content\assets\fonts\Flaticon.woff" />
+    <Content Include="Content\assets\fonts\flexslider-icon.eot" />
+    <Content Include="Content\assets\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\assets\fonts\flexslider-icon.woff" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\assets\fonts\slick.eot" />
+    <Content Include="Content\assets\fonts\slick.ttf" />
+    <Content Include="Content\assets\fonts\slick.woff" />
+    <Content Include="Content\vendor\jquery\jquery.min.map" />
+    <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Urunler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,7 +204,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109221235516_InitialCreate.resx">
+      <DependentUpon>202109221235516_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -147,7 +240,10 @@
       <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
