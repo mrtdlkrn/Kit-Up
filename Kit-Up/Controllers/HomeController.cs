@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Kit_Up.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Kit_Up.Controllers
 {
     public class HomeController : Controller
     {
+        DataContext _context = new DataContext();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(_context.Urunler.ToList());
         }
     }
 }

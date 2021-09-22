@@ -1,0 +1,39 @@
+﻿@using Kit_Up.Models;
+
+@model List<Urun>
+
+@foreach (var urun in Model)
+{
+
+    <div class="item">
+        <img src="@urun.UrunImg" alt="@urun.UrunAdi" />
+        <div class="down-content">
+            <h4>
+            @if (urun.UrunAdi.Length > 20)
+            {
+                @(urun.UrunAdi.Substring(0, 17) + "...")
+            }else
+            {
+                @urun.UrunAdi
+            }
+            </h4>
+            <p>
+                @if (urun.UrunAciklama.Length > 50)
+                {
+                    @(urun.UrunAciklama.Substring(0, 47) + "...")
+                }
+                else
+                {
+                    @urun.UrunAciklama.Length
+                }
+            </p>
+            <div class="author-image">
+                <strong>@urun.UrunYazar</strong>
+            </div>
+            <div class="text-button-pay">
+                <a href="#">@urun.UrunFiyat ₺ <i class="fa fa-angle-double-right"></i></a>
+            </div>
+        </div>
+    </div>
+}
+
