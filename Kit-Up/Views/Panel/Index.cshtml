@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Kit_Up.Models.Urun>
+
+@{
+    ViewBag.Title = "Kitaplar";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+<style>
+    #buton {
+        color: black
+    }
+</style>
+<p>
+    <div class="container">
+        <h1>Kitaplar</h1>
+    </div>
+</p>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Kitap</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col" class="text-center">Özet</th>
+                            <th scope="col" class="text-right">Fiyat</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+@foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                <img src="@item.UrunImg" alt="@item.UrunImg" class="urunImg" />
+                            </td>
+                            <td>@item.UrunAdi</td>
+                            <td>@item.UrunStok</td>
+                            <td>
+                                @if (item.UrunAciklama.Length > 255)
+                                {
+                                    @(item.UrunAciklama.Substring(0, 252) + "...")
+                                }
+                                else
+                                {
+                                    @item.UrunAciklama.Length
+                                }
+                            </td>
+                            <td class="text-right">@item.UrunFiyat ₺</td>
+                            <td class="text-right">
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.UrunId }) |
+                                @Html.ActionLink("Detay", "Details", new { id = item.UrunId }) |
+                                @Html.ActionLink("Sil", "Delete", new { id = item.UrunId })
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+            
+                            </td>
+        
+  
+                        </tr>
+}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace Kit_Up.Entity
 {
-    public class DataInitializer:DropCreateDatabaseIfModelChanges<DataContext>
+    public class DataInitializer : DropCreateDatabaseIfModelChanges<DataContext>
     {
         protected override void Seed(DataContext context)
         {
