@@ -1,29 +1,63 @@
-﻿<li>
-    @if (Request.IsAuthenticated)
-    {
-        // Kullanıcı Giriş Yapmış
-        <a class="btn-sm ml-3" href="~/Account/Register" style="background-color: #f5a425!important;">
-            İsmail Can / Hesabım
+﻿@if (User.IsInRole("admin"))
+{
+
+    <li>
+        <a class="btn-sm ml-3" href="/Panel" style="border-color: #f5a425 !important;">
+            Panel
         </a>
-        <a class="btn-sm ml-3" href="~/Account/Logout" style="background-color: #f5a425!important;">
+    </li>
+
+}
+@if (Request.IsAuthenticated)
+{
+    // Kullanıcı Giriş Yapmış
+    <li>
+        <a class="btn-sm ml-3" href="~/Account/Register" style="background-color: #f5a425!important;">
+            @User.Identity.Name
+        </a>
+    </li>
+
+
+    <li>
+        <a class="btn-sm ml-3" href="~/Account/Logout" style="border-color: #f5a425 !important;">
             Çıkış Yap
         </a>
+    </li>
+
+    <li>
         <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
             Sepetim
         </a>
-    }
-    else
-    {
-        // Kullanıcı Giriş Yapmamış
-        <a class="btn-sm ml-3" href="~/Account/Register" style="background-color: #f5a425!important;">
+    </li>
+
+
+}
+else
+{
+    // Kullanıcı Giriş Yapmamış
+    <li>
+        <a class="btn-sm ml-3" href="~/Account/Login">
+            Giriş Yap
+        </a>
+    </li>
+
+    <li>
+        <a class="btn-sm ml-3" href="~/Account/Register" style="border-color: #f5a425!important;">
             Kayıt Ol
         </a>
-        <a class="btn-sm ml-3" href="~/Account/Login" style="background-color: #f5a425!important;">
-           Giriş Yap
-        </a>
+    </li>
+
+    <li>
         <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
             Sepetim
         </a>
-    }
+    </li>
 
-</li>
+
+
+
+
+}
+
+
+

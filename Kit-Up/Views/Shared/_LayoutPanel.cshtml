@@ -32,19 +32,19 @@
 </head>
 <body>
     <!--header-->
-    <header class="main-header clearfix" >
+    <header class="main-header clearfix">
         <div class="logo">
-            <a href="/Panel"><em> KiT</em> Up PANEL</a>
+            <a href="#"><em> KiT - Up </em>Panel</a>
         </div>
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
-                <li><a href="/Panel/">Kitaplar</a></li>
-                <li><a href="/Panel/Create/">Kitap Ekle</a></li>
+                <li><a href="/Home">Anasayfa</a></li>
+                @Html.Partial("_LoginPartical")
+
             </ul>
         </nav>
     </header>
-
 
     @RenderBody()
 
@@ -73,6 +73,6 @@
     <script src="~/Content/assets/js/tabs.js"></script>
     <script src="~/Content/assets/js/video.js"></script>
     <script src="~/Content/assets/js/slick-slider.js"></script>
-    
+
 </body>
 </html>
