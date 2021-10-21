@@ -1,4 +1,5 @@
-﻿@if (User.IsInRole("admin"))
+﻿
+@if (User.IsInRole("admin"))
 {
 
     <li>
@@ -23,14 +24,6 @@
             Çıkış Yap
         </a>
     </li>
-
-    <li>
-        <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
-            Sepetim
-        </a>
-    </li>
-
-
 }
 else
 {
@@ -46,16 +39,6 @@ else
             Kayıt Ol
         </a>
     </li>
-
-    <li>
-        <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
-            Sepetim
-        </a>
-    </li>
-
-
-
-
 
 }
 

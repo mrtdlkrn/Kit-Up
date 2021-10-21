@@ -28,13 +28,14 @@
     <!--header-->
     <header class="main-header clearfix">
         <div class="logo">
-            <a href="#"><em> KiT </em>- Up</a>
+            <a href="/Home"><em> KiT </em>- Up</a>
         </div>
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
                 <li><a href="/Home">Anasayfa</a></li>
                 @Html.Partial("_LoginPartical")
+                @Html.Action("Summary", "Cart")
 
             </ul>
         </nav>

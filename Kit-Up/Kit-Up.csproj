@@ -189,6 +189,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Entity\DataInitializer.cs" />
@@ -206,6 +207,7 @@
       <DependentUpon>202109221235516_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\ErrorMessageAttribute.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Register.cs" />
@@ -241,11 +243,12 @@
     <Content Include="Views\Panel\Edit.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
     <Content Include="Views\Home\Kitap.cshtml" />
-    <Content Include="Views\Home\Sepet.cshtml" />
     <Content Include="Views\Home\KayitOl.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartical.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Summary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
