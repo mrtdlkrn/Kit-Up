@@ -1,0 +1,29 @@
+﻿<li>
+    @if (Request.IsAuthenticated)
+    {
+        // Kullanıcı Giriş Yapmış
+        <a class="btn-sm ml-3" href="~/Account/Register" style="background-color: #f5a425!important;">
+            İsmail Can / Hesabım
+        </a>
+        <a class="btn-sm ml-3" href="~/Account/Logout" style="background-color: #f5a425!important;">
+            Çıkış Yap
+        </a>
+        <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
+            Sepetim
+        </a>
+    }
+    else
+    {
+        // Kullanıcı Giriş Yapmamış
+        <a class="btn-sm ml-3" href="~/Account/Register" style="background-color: #f5a425!important;">
+            Kayıt Ol
+        </a>
+        <a class="btn-sm ml-3" href="~/Account/Login" style="background-color: #f5a425!important;">
+           Giriş Yap
+        </a>
+        <a class="btn-sm ml-3" href="~/Home/Sepet" style="background-color: #f5a425!important;">
+            Sepetim
+        </a>
+    }
+
+</li>

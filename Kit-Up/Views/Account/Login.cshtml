@@ -1,0 +1,58 @@
+﻿@model Kit_Up.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="section coming-soon" data-section="section3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="right-content">
+                    <div class="top-content">
+                        <h6>
+                            "Okuma ihtiyacı barut gibidir,
+                            bir kere tutuşunca artık sönmez"
+                            <br>
+                            <em>Victor Hugo</em>
+                        </h6>
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                        <h4 style="color: #fff;">Kullanıcı Giriş</h4>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <fieldset>
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Adresiniz" } })
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Şifreniz" } })
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="button">
+                                        Giriş Yap
+                                    </button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

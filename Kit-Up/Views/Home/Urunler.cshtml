@@ -2,20 +2,25 @@
 
 @model List<Urun>
 
+
+
 @foreach (var urun in Model)
 {
 
-    <div class="item">
+<div class="item">
+    <a href="/Home/Kitap/@urun.UrunId">
+
         <img src="@urun.UrunImg" alt="@urun.UrunAdi" />
         <div class="down-content">
             <h4>
-            @if (urun.UrunAdi.Length > 20)
-            {
-                @(urun.UrunAdi.Substring(0, 17) + "...")
-            }else
-            {
-                @urun.UrunAdi
-            }
+                @if (urun.UrunAdi.Length > 20)
+                {
+                    @(urun.UrunAdi.Substring(0, 17) + "...")
+                }
+                else
+                {
+                    @urun.UrunAdi
+                }
             </h4>
             <p>
                 @if (urun.UrunAciklama.Length > 50)
@@ -31,9 +36,12 @@
                 <strong>@urun.UrunYazar</strong>
             </div>
             <div class="text-button-pay">
-                <a href="#">@urun.UrunFiyat ₺ <i class="fa fa-angle-double-right"></i></a>
+                <a href="/Home/Kitap/@urun.UrunId">@urun.UrunFiyat ₺ <i class="fa fa-angle-double-right"></i></a>
             </div>
         </div>
-    </div>
+    </a>
+
+</div>
+
 }
 

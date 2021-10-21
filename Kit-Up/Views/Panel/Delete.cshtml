@@ -1,0 +1,91 @@
+﻿@model Kit_Up.Models.Urun
+
+@{
+    ViewBag.Title = "Kitap Sil";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div>
+    <h4>
+        <strong>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </strong>
+        adlı kitabı silmek istediğinizden emin misiniz?
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunImg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunYazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunYazar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunStok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunKategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunKategori)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunSatistami)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunSatistami)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye geri dön", "Index")
+        </div>
+    }
+</div>
