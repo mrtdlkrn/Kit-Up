@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Kit_Up.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class PanelController : Controller
     {
         private DataContext db = new DataContext();

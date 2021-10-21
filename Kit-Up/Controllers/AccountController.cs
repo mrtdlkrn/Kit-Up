@@ -3,6 +3,7 @@ using Kit_Up.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -63,7 +64,7 @@ namespace Kit_Up.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login model)
+        public ActionResult Login(Login model, string ReturnUrl)
         {
 
             if (ModelState.IsValid)
@@ -82,6 +83,10 @@ namespace Kit_Up.Controllers
                     authProperties.IsPersistent = model.RememberMe;
                     authManager.SignIn(authProperties, Identityclaims);
 
+                    if (!String.IsNullOrEmpty(ReturnUrl))
+                    {
+                        return Redirect(ReturnUrl);
+                    }
                     return RedirectToAction("Index", "Home");
                 }else
                 {

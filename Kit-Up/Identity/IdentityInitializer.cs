@@ -30,7 +30,7 @@ namespace Kit_Up.Identity
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser() { UserName = "ismailcankaratasss@gmail.com", Name = "ismailcan", SurName = "Karataş", Email = "ismailcankaratasss@gmail.com" };
+                var user = new ApplicationUser() { UserName = "ismailcankaratasss@gmail.com", Name = "İsmail Can", SurName = "Karataş", Email = "ismailcankaratasss@gmail.com" };
                 manager.Create(user, "1234567");
                 manager.AddToRole(user.Id, "admin");
                 manager.AddToRole(user.Id, "user");
